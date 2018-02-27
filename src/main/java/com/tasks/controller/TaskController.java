@@ -1,7 +1,9 @@
 package com.tasks.controller;
 
+import com.tasks.domain.Task;
 import com.tasks.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,5 +16,10 @@ public class TaskController {
     @Autowired
     public TaskController(final TaskService taskService) {
         this.taskService = taskService;
+    }
+
+    @GetMapping(value = {"", "/"})
+    public Iterable<Task> getAllTasks() {
+        return taskService.getAllTasks();
     }
 }

@@ -1,5 +1,6 @@
 package com.tasks.service.impl;
 
+import com.tasks.domain.Task;
 import com.tasks.repository.TaskRepository;
 import com.tasks.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,5 +14,10 @@ public class TaskServiceImpl implements TaskService {
     @Autowired
     public TaskServiceImpl(final TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
+    }
+
+    @Override
+    public Iterable<Task> getAllTasks() {
+        return taskRepository.findAll();
     }
 }
