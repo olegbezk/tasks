@@ -24,10 +24,8 @@ export class TasksListComponent implements OnInit {
             );
     }
 
-
-    onTaskChange(event, task: Task) {
-        // this.taskService.saveTask(task, event.target.checked).subscribe();
-        console.log('Task has changed');
+    onTaskChange(task: Task, event) {
+        this.taskService.saveTask(task, event.target.checked).subscribe();
     }
 
     getDueDateLabel(task: Task) {
