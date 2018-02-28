@@ -22,6 +22,12 @@ repositories {
 	mavenCentral()
 }
 
+task buildWithStatic(type: Exec) {
+    workingDir "${projectDir}/src/main/frontend/"
+    commandLine "npm", "run", "build"
+}
+
+build.dependsOn buildWithStatic
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-actuator-docs')
